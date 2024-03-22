@@ -105,6 +105,7 @@ $InstalledCapabilities | ForEach {
     Catch {Write-Warning -Message "Failed to uninstall: [$($InstalledCapabilities.Name)]"}
 }
 
+# Remove News widget
 $RegistryPath = "HKLM:\SOFTWARE\Policies\Microsoft\Dsh"
 New-Item -Path $RegistryPath -Force
 New-ItemProperty -Path $RegistryPath -Name "AllowNewsAndInterests" -Value "0" -PropertyType dword -Force
